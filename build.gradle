@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "io.freefair.lombok" version "8.6"
+    id 'io.qameta.allure' version '2.11.2'
 
 }
 
@@ -11,6 +12,14 @@ sourceCompatibility = 11
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
+allure {
+    version = '2.20.1'
+    useJUnit5 {
+        version = '2.20.1'
+    }
+}
+
+
 repositories {
     mavenCentral()
 }
@@ -20,6 +29,7 @@ dependencies {
     testImplementation 'com.codeborne:selenide:6.17.2'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testRuntimeOnly 'org.slf4j:slf4j-simple:2.0.3' // logger сообщает осмысленную инфу по тестам
+    testImplementation 'io.qameta.allure:allure-selenide:2.20.1'
 }
 
 test {
